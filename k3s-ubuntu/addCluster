@@ -21,8 +21,8 @@ multipass exec $MASTER sudo apt-get update
 
 echo "**************************************************************************************************************************** upgrade master"
 multipass exec $MASTER -- /bin/bash -c "sudo apt-get upgrade --assume-yes"
-multipass exec $MASTER sudo apt install sshfs
-# multipass exec $MASTER sudo snap install multipass-sshfs # Ubuntu >= 20.04 only
+# multipass exec $MASTER sudo apt install sshfs          # Ubuntu < 20.04
+multipass exec $MASTER sudo snap install multipass-sshfs # Ubuntu >= 20.04
 
 echo "**************************************************************************************************************************** mount master"
 mkdir -p store
